@@ -1,0 +1,14 @@
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON 
+GO
+
+CREATE VIEW [dbo].[IdentificacionProvincia] AS
+SELECT 
+        p.nombre AS [Nombre de las provincias],
+        m.nombre AS [Nombre de los municipios],
+        dm.nombre AS [Nombre de los distritos municipales]
+ FROM dbo.provincias AS p 
+ INNER JOIN dbo.municipios AS m ON p.provincia_id = m.provincia_id
+ INNER JOIN dbo.distritos_municipales AS dm ON m.municipio_id = dm.municipio_id
+GO
